@@ -16,9 +16,9 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
 
-@Configuration
-@EnableWebSecurity
-@EnableMethodSecurity(prePostEnabled = true)
+@Configuration // utilisée pour marquer une classe comme une classe de configuration. Les classes de configuration sont utilisées pour définir la configuration de l'application.
+@EnableWebSecurity //activer la sécurité Web dans une application Spring.
+@EnableMethodSecurity(prePostEnabled = true) //activer la sécurité au niveau de la méthode dans une application Spring.
 @AllArgsConstructor
 public class securityConfig {
 
@@ -43,8 +43,8 @@ public class securityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws  Exception{
         httpSecurity.formLogin().loginPage("/login")
-                .defaultSuccessUrl("/")
-                .permitAll();//une fois il est authentifié il me dirige vers /
+                .defaultSuccessUrl("/") //une fois il est authentifié il me dirige vers /
+                .permitAll();
         httpSecurity.rememberMe();
         httpSecurity.authorizeHttpRequests().requestMatchers("/webjars/**").permitAll();
         //httpSecurity.authorizeHttpRequests().requestMatchers("/user/**").hasRole("USER");

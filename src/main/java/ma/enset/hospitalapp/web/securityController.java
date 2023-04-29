@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class securityController {
-    @GetMapping("/notAuthorized")
+    @GetMapping("/notAuthorized") //mapper une méthode à une requête HTTP GET.
     public String notAuthorized(){
         return "notAuthorized";
     }

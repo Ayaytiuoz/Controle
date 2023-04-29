@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service //marquer une classe comme un service. Les services sont des classes qui contiennent la logique métier de l'application.
 @AllArgsConstructor
 public class UserDetailSeviceImpl implements UserDetailsService {
         private AccountService accountService;

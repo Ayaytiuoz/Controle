@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
 public class AppRole {
-    @Id
+    @Id//le champ annoté doit être utilisé comme identifiant de l'objet associé.
     private  String role;
 }

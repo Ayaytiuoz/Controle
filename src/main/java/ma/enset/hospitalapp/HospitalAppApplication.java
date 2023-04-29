@@ -15,13 +15,13 @@ import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
 import java.util.Date;
 
-@SpringBootApplication
+@SpringBootApplication //marquer une classe comme une classe de démarrage pour une application Spring Boot.
 public class HospitalAppApplication {
     public static void main(String[] args) {
         SpringApplication.run(HospitalAppApplication.class, args);
     }
 
-    @Bean
+    @Bean //sert a executer les methodes au demarrage de lapp
     CommandLineRunner start(PatientRepository patientRepository){
         return args -> {
             //inserer des utilisateurs

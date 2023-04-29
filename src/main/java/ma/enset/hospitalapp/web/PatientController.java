@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@Controller
+@Controller //marquer une classe comme un contrôleur. Les contrôleurs sont des classes qui gèrent les requêtes HTTP dans une application Web.
 public class PatientController {
-    @Autowired
+    @Autowired  //injecter des dépendances dans une classe.
     private PatientRepository patientRepository;
     @GetMapping("/user/index")
     public String index(Model model,
@@ -34,7 +34,7 @@ public class PatientController {
         return "patients";
     }
     @GetMapping("/admin/deletePatient")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')") //définir une autorisation préalable requise pour accéder à une méthode ou une page Web.
     public String deletePatient(@RequestParam(name = "id") Long id, String keyword, int page){
         patientRepository.deleteById(id);
         return "redirect:/user/index?page="+page+"&keyword="+keyword;
@@ -45,7 +45,7 @@ public class PatientController {
         model.addAttribute("patient",new Patient());
         return "formPatient";
     }
-    @PostMapping("/admin/savePatient")
+    @PostMapping("/admin/savePatient") //mapper une méthode à une requête HTTP POST.
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String savePatient(@Valid Patient patient, BindingResult bindingResult){
         if (bindingResult.hasErrors()) return "formPatient";
